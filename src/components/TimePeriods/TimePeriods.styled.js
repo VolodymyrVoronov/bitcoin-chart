@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const TimePeriodsContainer = styled.div`
   display: flex;
@@ -25,14 +25,24 @@ const TimePeriod = styled.button`
   outline: none;
   border: none;
 
-  &:hover {
-    color: #ffffff;
+  ${(props) =>
+    props.isDisabled
+      ? null
+      : css`
+          &:hover {
+            color: #ffffff;
 
-    cursor: pointer;
+            cursor: pointer;
 
-    background-color: #69c7ff;
+            background-color: #69c7ff;
 
-    transition: 0.3s ease;
+            transition: 0.3s ease;
+          }
+        `}
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
   }
 `;
 

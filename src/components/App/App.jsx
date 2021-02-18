@@ -5,16 +5,21 @@ import { useSelector } from "react-redux";
 import Header from "../Header/Header";
 import CoinChart from "../CoinChart/CoinChart";
 import Preloader from "./../UI/Preloader/Preloader";
+import ErrorMessage from "./../UI/ErrorMessage/ErrorMessage";
 
 import { AppContainer } from "./App.styled";
 
 const App = () => {
-  const { isChartDataLoading } = useSelector(({ app }) => app);
+  const { isChartDataLoading, isErrorOccured } = useSelector(({ app }) => app);
 
   return (
     <AppContainer>
-      <Header />
-      {isChartDataLoading ? <Preloader /> : <CoinChart />}
+      {isErrorOccured ? null : <Header />}
+      {isErrorOccured ? (
+        <ErrorMessage />
+      ) : (
+        <>{isChartDataLoading ? <Preloader /> : <CoinChart />}</>
+      )}
     </AppContainer>
   );
 };

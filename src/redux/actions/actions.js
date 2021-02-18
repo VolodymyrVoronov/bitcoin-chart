@@ -11,3 +11,8 @@ export const isChartDataLoadingAC = makeActionCreator(
   ActionType.LOADING_CHART_DATA,
   `isChartDataLoading`
 );
+
+export const getIsErrorOccuredAC = makeActionCreator(
+  ActionType.IS_ERROR_OCCURED,
+  `isErrorOccured`
+);

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { getChartData } from "./../../redux/reducers/app";
 
@@ -12,6 +12,8 @@ import { getEndDate } from "./../../helpers/getEndDate";
 
 const TimePeriods = () => {
   const dispatch = useDispatch();
+
+  const { isChartDataLoading } = useSelector(({ app }) => app);
 
   const [activeTime, setActiveTime] = React.useState(1);
 
@@ -31,6 +33,9 @@ const TimePeriods = () => {
             onClick={() => onTimeClick(id, numberOfDays)}
             key={id}
             activeTime={activeTime === id}
+            type="button"
+            disabled={isChartDataLoading}
+            isDisabled={isChartDataLoading}
           >
             {timePeriod}
           </TimePeriod>

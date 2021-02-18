@@ -1,6 +1,10 @@
 import { ActionType } from "../actions/actionTypes";
 
-import { getChartDataAC, isChartDataLoadingAC } from "./../actions/actions";
+import {
+  getChartDataAC,
+  isChartDataLoadingAC,
+  getIsErrorOccuredAC,
+} from "./../actions/actions";
 
 import { appAPI } from "./../../api/api";
 
@@ -10,6 +14,7 @@ const initialState = {
   chartData: [],
   isChartDataLoading: false,
   startDate: 1,
+  isErrorOccured: false,
 };
 
 const appReducer = (state = initialState, action) => {
@@ -28,6 +33,13 @@ const appReducer = (state = initialState, action) => {
       };
     }
 
+    case ActionType.IS_ERROR_OCCURED: {
+      return {
+        ...state,
+        isErrorOccured: action.isErrorOccured,
+      };
+    }
+
     default:
       return state;
   }
@@ -43,7 +55,8 @@ export const getChartData = (startDate, endDate) => async (dispatch) => {
       dispatch(isChartDataLoadingAC(false));
     }
   } catch (error) {
-    // dispatch(getIsErrorAC(true));
+    dispatch(getIsErrorOccuredAC(true));
+    dispatch(isChartDataLoadingAC(false));
     console.log(error);
   }
 };
