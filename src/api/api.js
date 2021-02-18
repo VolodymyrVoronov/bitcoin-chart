@@ -4,15 +4,12 @@ import { apiBody } from "../helpers/const";
 
 const instanceAPI = axios.create({
   baseURL: apiBody,
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-    "x-access-token":
-      "coinranking14dc020648e28450dc148452db80e1b89901c08ed0bb3e01",
-  },
 });
 
 export const appAPI = {
-  getChartData() {
-    return instanceAPI.get(`coin/Qwsogvtv82FCd/history?timePeriod=1y/`);
+  getChartData(startDate, endDate) {
+    return instanceAPI.get(
+      `bpi/historical/close.json?start=${startDate}&end=${endDate}`
+    );
   },
 };

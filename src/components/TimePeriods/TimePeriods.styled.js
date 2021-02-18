@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const TimePeriodsContainer = styled.ul`
+const TimePeriodsContainer = styled.div`
   display: flex;
 `;
 
-const TimePeriod = styled.li`
+const TimePeriod = styled.button`
   display: flex;
 
   margin: 0 2px;
@@ -21,6 +21,9 @@ const TimePeriod = styled.li`
   border-radius: 25px;
 
   transition: 0.3s ease;
+
+  outline: none;
+  border: none;
 
   &:hover {
     color: #ffffff;

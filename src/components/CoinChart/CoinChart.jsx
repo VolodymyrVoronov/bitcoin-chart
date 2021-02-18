@@ -10,8 +10,8 @@ const CoinChart = () => {
   const { chartData } = useSelector(({ app }) => app);
 
   const data = {
-    labels: chartData.map((data) =>
-      new Date(+data.timestamp * 1000).toLocaleDateString()
+    labels: Object.keys(chartData).map((key) =>
+      new Date(key).toLocaleDateString()
     ),
     datasets: [
       {
@@ -25,7 +25,7 @@ const CoinChart = () => {
         borderDashOffset: 0.0,
         borderJoinStyle: "miter",
         pointBorderColor: "#69c7ff",
-        pointBackgroundColor: "#fff",
+        pointBackgroundColor: "#84d2ff",
         pointBorderWidth: 1,
         pointHoverRadius: 5,
         pointHoverBackgroundColor: "#69c7ff",
@@ -33,7 +33,7 @@ const CoinChart = () => {
         pointHoverBorderWidth: 2,
         pointRadius: 2,
         pointHitRadius: 10,
-        data: chartData.map((data) => Number(data.price).toFixed(0)),
+        data: Object.values(chartData),
       },
     ],
   };
@@ -44,7 +44,6 @@ const CoinChart = () => {
     },
   };
 
-  console.log(chartData);
   return (
     <ChartContainer>
       <Line data={data} options={options} />

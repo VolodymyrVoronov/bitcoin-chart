@@ -7,8 +7,6 @@ const ChartContainer = styled.div`
 
   margin: 0 auto;
   padding: 10px;
-
-  /* background-color: tomato; */
 `;
 
 export { ChartContainer };

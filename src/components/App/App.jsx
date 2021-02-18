@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 import Header from "../Header/Header";
 import CoinChart from "../CoinChart/CoinChart";
+import Preloader from "./../UI/Preloader/Preloader";
 
 import { AppContainer } from "./App.styled";
 
@@ -13,8 +14,7 @@ const App = () => {
   return (
     <AppContainer>
       <Header />
-      {isChartDataLoading ? `Loading` : <CoinChart />}
-      {/* <CoinChart /> */}
+      {isChartDataLoading ? <Preloader /> : <CoinChart />}
     </AppContainer>
   );
 };
