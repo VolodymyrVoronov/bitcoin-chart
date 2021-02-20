@@ -7,7 +7,7 @@ import { getChartData } from "./../../redux/reducers/app";
 import { times } from "./../../helpers/const";
 
 import { TimePeriodsContainer, TimePeriod } from "./TimePeriods.styled";
-import { getStartDate } from "./../../helpers/getStartDay";
+import { getStartDate } from "../../helpers/getStartDate";
 import { getEndDate } from "./../../helpers/getEndDate";
 
 const TimePeriods = () => {

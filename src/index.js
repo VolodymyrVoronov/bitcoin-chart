@@ -9,7 +9,7 @@ import { getChartData } from "./redux/reducers/app";
 
 import App from "./components/App/App";
 
-import { getStartDate } from "./helpers/getStartDay";
+import { getStartDate } from "./helpers/getStartDate";
 import { getEndDate } from "./helpers/getEndDate";
 
 import GlobalStyles from "./styles/globalStyles";
