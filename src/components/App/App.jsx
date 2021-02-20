@@ -10,10 +10,12 @@ import ErrorMessage from "./../UI/ErrorMessage/ErrorMessage";
 import { AppContainer } from "./App.styled";
 
 const App = () => {
-  const { isChartDataLoading, isErrorOccured } = useSelector(({ app }) => app);
+  const { isChartDataLoading, isErrorOccured, isDarkModeOn } = useSelector(
+    ({ app }) => app
+  );
 
   return (
-    <AppContainer>
+    <AppContainer isDarkModeOn={isDarkModeOn}>
       {isErrorOccured ? null : <Header />}
       {isErrorOccured ? (
         <ErrorMessage />

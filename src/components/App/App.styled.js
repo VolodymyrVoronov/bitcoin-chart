@@ -9,7 +9,8 @@ const AppContainer = styled.div`
 
   font-family: "Lato", "Roboto", "Arial", sans-serif;
 
-  /* background-color: tomato; */
+  background-color: ${(props) => (props.isDarkModeOn ? `#292929` : `#ffffff`)};
+  transition: 3s ease;
 `;
 
 export { AppContainer };

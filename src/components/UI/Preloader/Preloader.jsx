@@ -1,5 +1,7 @@
 import React from "react";
 
+import { useSelector } from "react-redux";
+
 import {
   PreloaderContainer,
   PreloaderBody,
@@ -8,11 +10,13 @@ import {
 } from "./Preloader.styled";
 
 const Preloader = () => {
+  const { isDarkModeOn } = useSelector(({ app }) => app);
+
   return (
     <PreloaderContainer>
       <PreloaderBody>
-        <PreloaderBlockOne></PreloaderBlockOne>
-        <PreloaderBlockTwo></PreloaderBlockTwo>
+        <PreloaderBlockOne isDarkModeOn={isDarkModeOn}></PreloaderBlockOne>
+        <PreloaderBlockTwo isDarkModeOn={isDarkModeOn}></PreloaderBlockTwo>
       </PreloaderBody>
     </PreloaderContainer>
   );

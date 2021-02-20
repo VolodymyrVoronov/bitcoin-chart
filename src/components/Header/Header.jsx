@@ -1,5 +1,7 @@
 import React from "react";
 
+import { MobileView, isMobile } from "react-device-detect";
+
 import ToggleDarkMode from "./../ToggleDarkMode/ToggleDarkMode";
 import TimePeriods from "../TimePeriods/TimePeriods";
 
@@ -13,7 +15,7 @@ const Header = () => {
   return (
     <AppHeader>
       <ToggleContainer>
-        <ToggleDarkMode />
+        {MobileView && isMobile ? null : <ToggleDarkMode />}
       </ToggleContainer>
       <TimePeriodsContainer>
         <TimePeriods />

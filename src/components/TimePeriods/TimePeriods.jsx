@@ -13,7 +13,7 @@ import { getEndDate } from "./../../helpers/getEndDate";
 const TimePeriods = () => {
   const dispatch = useDispatch();
 
-  const { isChartDataLoading } = useSelector(({ app }) => app);
+  const { isChartDataLoading, isDarkModeOn } = useSelector(({ app }) => app);
 
   const [activeTime, setActiveTime] = React.useState(1);
 
@@ -36,6 +36,7 @@ const TimePeriods = () => {
             type="button"
             disabled={isChartDataLoading}
             isDisabled={isChartDataLoading}
+            isDarkModeOn={isDarkModeOn}
           >
             {timePeriod}
           </TimePeriod>

@@ -15,6 +15,7 @@ const initialState = {
   isChartDataLoading: false,
   startDate: 1,
   isErrorOccured: false,
+  isDarkModeOn: false,
 };
 
 const appReducer = (state = initialState, action) => {
@@ -37,6 +38,13 @@ const appReducer = (state = initialState, action) => {
       return {
         ...state,
         isErrorOccured: action.isErrorOccured,
+      };
+    }
+
+    case ActionType.TOGGLE_DARK_MODE: {
+      return {
+        ...state,
+        isDarkModeOn: !action.isDarkModeOn,
       };
     }
 

@@ -23,6 +23,10 @@ const PreloaderContainer = styled.div`
 
   width: 1200px;
 
+  @media (min-width: 1440px) {
+    width: 1440px;
+  }
+
   margin: 0 auto;
   padding: 10px;
 `;
@@ -39,7 +43,7 @@ const PreloaderBody = styled.div`
 
 const PreloaderBlockOne = styled.div`
   position: absolute;
-  border: 4px solid #69c7ff;
+  border: 4px solid ${(props) => (props.isDarkModeOn ? `#304747` : `#69c7ff`)};
   opacity: 1;
   border-radius: 50%;
   animation: ${ldsRipple} 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -47,7 +51,7 @@ const PreloaderBlockOne = styled.div`
 
 const PreloaderBlockTwo = styled.div`
   position: absolute;
-  border: 4px solid #69c7ff;
+  border: 4px solid ${(props) => (props.isDarkModeOn ? `#304747` : `#69c7ff`)};
   opacity: 1;
   border-radius: 50%;
   animation: ${ldsRipple} 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
